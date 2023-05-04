@@ -15,6 +15,8 @@ import {FormsModule} from "@angular/forms";
 import { ToastrModule } from 'ngx-toastr';
 import {DataTablesModule} from "angular-datatables";
 import { DeviceComponent } from './component/device/device.component';
+import { FirePredictionWarningComponent } from './component/fire-prediction-warning/fire-prediction-warning.component';
+import { FireDetectionAlertsComponent } from './component/fire-detection-alerts/fire-detection-alerts.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { DeviceComponent } from './component/device/device.component';
     SideNavbarComponent,
     UserComponent,
     DeviceComponent,
+    FirePredictionWarningComponent,
+    FireDetectionAlertsComponent,
   ],
   imports: [
     BrowserModule,

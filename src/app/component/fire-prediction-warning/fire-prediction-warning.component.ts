@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirePredictionWarningComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {}
+  fires?: any[];
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,1 +1,90 @@
-<p>fire-prediction-warning works!</p>
+<!-- Header -->
+<app-topbar></app-topbar>
+<!-- /Header -->
+
+<!-- Sidebar -->
+<app-side-navbar></app-side-navbar>
+<!-- /Sidebar -->
+
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row">
+        <div class="col-sm-7 col-auto">
+          <h3 class="page-title">Fire Prediction Alerts</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Fire Prediction Alerts</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <!-- /Page Header -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Fire Prediction Alerts</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table datatable [dtOptions]="dtOptions" class="datatable table table-stripped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Temperature</th>
+                  <th>Humidity</th>
+                  <th>Time</th>
+                  <th>Device ID</th>
+                  <th>Wind Speed</th>
+                  <th>Rain</th>
+                  <th>Flame Detection</th>
+                </tr>
+                </thead>
+                <tbody *ngIf="fires?.length != 0">
+                <tr *ngFor="let fire of fires">
+                  <td>{{ fire.id }}</td>
+                  <td>{{ fire.temperature }}</td>
+                  <td>{{ fire.humidity }}</td>
+                  <td>{{ fire.time }}</td>
+                  <td>{{ fire.device_id }}</td>
+                  <td>{{ fire.wind_speed }}</td>
+                  <td>{{ fire.rain }}</td>
+                  <td>{{ fire.flame_detection }}</td>
+                  <td>
+                    <!--                    <a data-toggle="modal" (click)="removeUser(user.id)" class="btn btn-sm bg-danger-light ml-1">-->
+                    <!--                      <i class="fe fe-trash"></i> Delete-->
+                    <!--                    </a>-->
+                  </td>
+                </tr>
+                </tbody>
+                <tbody *ngIf="fires?.length == 0">
+                <tr>
+                  <td colspan="3" class="no-data-available">No data!</td>
+                </tr>
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  $(document).ready(function () {
+    console.log("loaded")
+
+  });
+
+</script>

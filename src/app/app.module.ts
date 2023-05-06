@@ -17,6 +17,7 @@ import {DataTablesModule} from "angular-datatables";
 import { DeviceComponent } from './component/device/device.component';
 import { FirePredictionWarningComponent } from './component/fire-prediction-warning/fire-prediction-warning.component';
 import { FireDetectionAlertsComponent } from './component/fire-detection-alerts/fire-detection-alerts.component';
+import { SensorDataComponent } from './component/sensor-data/sensor-data.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FireDetectionAlertsComponent } from './component/fire-detection-alerts/
     DeviceComponent,
     FirePredictionWarningComponent,
     FireDetectionAlertsComponent,
+    SensorDataComponent,
   ],
   imports: [
     BrowserModule,

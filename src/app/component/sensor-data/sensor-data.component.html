@@ -1,0 +1,104 @@
+<!-- Header -->
+<app-topbar></app-topbar>
+<!-- /Header -->
+
+<!-- Sidebar -->
+<app-side-navbar></app-side-navbar>
+<!-- /Sidebar -->
+
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row">
+        <div class="col-sm-7 col-auto">
+          <h3 class="page-title">Sensor Data</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Sensor Data</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <!-- /Page Header -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Sensor Data</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table datatable [dtOptions]="dtOptions" class="datatable table table-stripped">
+                <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Temperature</th>
+                  <th>Humidity</th>
+                  <th>Device ID</th>
+                  <th>CO Detected</th>
+                  <th>CO Level</th>
+                  <th>Flame Detection</th>
+                  <th>Soil Moisture Level</th>
+                  <th>BMP Temperature</th>
+                  <th>BMP Pressure</th>
+                  <th>BMP Sea Level Pressure</th>
+                  <th>BMP Altitude</th>
+                  <th>BMP Altitude with sea level pressure</th>
+                  <th>Wind RPM</th>
+                  <th>Wind Speed (Kmph)</th>
+                </tr>
+                </thead>
+                <tbody *ngIf="sensorDataList?.length != 0">
+                <tr *ngFor="let fire of sensorDataList">
+                  <td>{{ fire.time }}</td>
+                  <td>{{ fire.temperature }}</td>
+                  <td>{{ fire.humidity }}</td>
+                  <td>{{ fire.device_id }}</td>
+                  <td>{{ fire.co_detection }}</td>
+                  <td>{{ fire.co_level }}</td>
+                  <td>{{ fire.flame_detection }}</td>
+                  <td>{{ fire.soil_moisture_level }}</td>
+                  <td>{{ fire.bmp_temperature }}</td>
+                  <td>{{ fire.bmp_pressure }}</td>
+                  <td>{{ fire.bmp_sea_level_pressure }}</td>
+                  <td>{{ fire.bmp_altitude }}</td>
+                  <td>{{ fire.bmp_altitude_with_sea_level_pressure }}</td>
+                  <td>{{ fire.wind_rpm }}</td>
+                  <td>{{ fire.wind_speed }}</td>
+                  <td>
+                    <!--                    <a data-toggle="modal" (click)="removeUser(user.id)" class="btn btn-sm bg-danger-light ml-1">-->
+                    <!--                      <i class="fe fe-trash"></i> Delete-->
+                    <!--                    </a>-->
+                  </td>
+                </tr>
+                </tbody>
+                <tbody *ngIf="sensorDataList?.length == 0">
+                <tr>
+                  <td colspan="3" class="no-data-available">No data!</td>
+                </tr>
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  $(document).ready(function () {
+    console.log("loaded")
+
+  });
+
+</script>

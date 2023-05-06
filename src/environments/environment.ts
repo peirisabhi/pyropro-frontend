@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   title: 'normal Environment Heading',
-  apiURL: 'http://localhost:8080/api/'
+  apiURL: 'http://localhost:8080/api/',
+  SenorDataSaveServiceURL: 'http://localhost:8083/api/'
 
 };
 

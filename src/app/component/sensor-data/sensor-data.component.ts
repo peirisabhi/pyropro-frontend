@@ -53,4 +53,25 @@ export class SensorDataComponent implements OnInit {
 
   }
 
+
+  getDate(timestamp: any) {
+    console.log("date")
+    var date= new Date(timestamp);
+    var dateFormat = date.getDate()+
+      "/"+(date.getMonth()+1)+
+      "/"+date.getFullYear()+
+      " "+date.getHours()+
+      ":"+date.getMinutes()+
+      ":"+date.getSeconds();
+    // this.userService.saveUser(this.user)
+    //   .subscribe(data => {
+    //     console.log("saving --- " + data);
+    //     this.user = new User();
+    //     this.notifyService.showSuccess("Successfully User Saved", "Success");
+    //     window.location.reload();
+    //   })
+    console.log(dateFormat)
+    return dateFormat;
+  }
+
 }

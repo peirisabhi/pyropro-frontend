@@ -35,26 +35,44 @@
               <table datatable [dtOptions]="dtOptions" class="datatable table table-stripped">
                 <thead>
                 <tr>
-                  <th>#</th>
+                  <th>Time</th>
                   <th>Temperature</th>
                   <th>Humidity</th>
-                  <th>Time</th>
                   <th>Device ID</th>
-                  <th>Wind Speed</th>
-                  <th>Rain</th>
+                  <th>CO Detected</th>
+                  <th>CO Level</th>
                   <th>Flame Detection</th>
+                  <th>Soil Moisture Level</th>
+                  <th>BMP Temperature</th>
+                  <th>BMP Pressure</th>
+                  <th>BMP Sea Level Pressure</th>
+                  <th>BMP Altitude</th>
+                  <th>BMP Altitude with sea level pressure</th>
+                  <th>Wind RPM</th>
+                  <th>Wind Speed (Kmph)</th>
+                  <th>Type</th>
+                  <th>Data From</th>
                 </tr>
                 </thead>
                 <tbody *ngIf="fires?.length != 0">
                 <tr *ngFor="let fire of fires">
-                  <td>{{ fire.id }}</td>
+                  <td>{{ getDate(fire.time) }}</td>
                   <td>{{ fire.temperature }}</td>
                   <td>{{ fire.humidity }}</td>
-                  <td>{{ fire.time }}</td>
                   <td>{{ fire.device_id }}</td>
-                  <td>{{ fire.wind_speed }}</td>
-                  <td>{{ fire.rain }}</td>
+                  <td>{{ fire.co_detection }}</td>
+                  <td>{{ fire.co_level }}</td>
                   <td>{{ fire.flame_detection }}</td>
+                  <td>{{ fire.soil_moisture_level }}</td>
+                  <td>{{ fire.bmp_temperature }}</td>
+                  <td>{{ fire.bmp_pressure }}</td>
+                  <td>{{ fire.bmp_sea_level_pressure }}</td>
+                  <td>{{ fire.bmp_altitude }}</td>
+                  <td>{{ fire.bmp_altitude_with_sea_level_pressure }}</td>
+                  <td>{{ fire.wind_rpm }}</td>
+                  <td>{{ fire.wind_speed }}</td>
+                  <td>{{ fire.type }}</td>
+                  <td>{{ fire.data_from }}</td>
                   <td>
                     <!--                    <a data-toggle="modal" (click)="removeUser(user.id)" class="btn btn-sm bg-danger-light ml-1">-->
                     <!--                      <i class="fe fe-trash"></i> Delete-->

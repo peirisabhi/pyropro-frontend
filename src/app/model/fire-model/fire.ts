@@ -1,11 +1,20 @@
 export class Fire {
-  id?: number;
+
   temperature?: number;
   humidity?: number;
-  time?: string;
+  time?: number;
   device_id?: string;
-  wind_speed?: number;
-  rain?: number;
+  co_detection?: number;
+  co_level?: number;
   flame_detection?: boolean;
-
+  soil_moisture_level?: number;
+  bmp_temperature?:number;
+  bmp_pressure?: number;
+  bmp_sea_level_pressure?: number;
+  bmp_altitude?: number;
+  bmp_altitude_with_sea_level_pressure?: number;
+  wind_rpm?: number;
+  wind_speed?: number;
+  type?: string;
+  data_from?: string;
 }

@@ -54,7 +54,7 @@
                 </thead>
                 <tbody *ngIf="sensorDataList?.length != 0">
                 <tr *ngFor="let fire of sensorDataList">
-                  <td>{{ fire.time }}</td>
+                  <td>{{ getDate(fire.time) }}</td>
                   <td>{{ fire.temperature }}</td>
                   <td>{{ fire.humidity }}</td>
                   <td>{{ fire.device_id }}</td>

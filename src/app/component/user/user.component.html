@@ -43,6 +43,7 @@
                   <th>Email</th>
                   <th>Gender</th>
                   <th>Nic</th>
+                  <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody *ngIf="users?.length != 0">
@@ -136,6 +137,13 @@
           </div>
         </div>
 
+
+        <div class="col-12">
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" [(ngModel)]="user.password" class="form-control">
+          </div>
+        </div>
 
       </div>
       <button type="submit" class="btn btn-primary btn-block">Save Changes</button>

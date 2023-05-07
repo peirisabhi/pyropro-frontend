@@ -11,7 +11,7 @@ import {DataTablesResponse} from "../../model/data-tables-response-model/data-ta
 import {Confirm} from "notiflix";
 
 
-let apiURL = environment.apiURL;
+let apiURL = environment.authServiceURL;
 
 @Component({
   selector: 'app-user',

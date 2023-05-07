@@ -6,5 +6,6 @@ export class User {
   gender?: string = "0";
   user_role_id: string = "0";
   nic?: string;
+  password?: string;
 
 }

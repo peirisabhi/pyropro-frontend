@@ -3,7 +3,11 @@ import { Device } from 'src/app/model/device-model/device';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NotificationService} from "../../service/notification-service/notification.service";
 import {HttpClient} from "@angular/common/http";
-import {User} from "../../model/user-model/user";
+import {DeviceServiceService} from "../../service/device-service/device-service.service";
+import {DataTablesResponse} from "../../model/data-tables-response-model/data-tables-response";
+import {environment} from "../../../environments/environment";
+
+let apiURL = environment.authServiceURL;
 
 @Component({
   selector: 'app-device',
@@ -18,9 +22,40 @@ export class DeviceComponent implements OnInit {
 
   constructor(private modalService: NgbModal,
               private notifyService: NotificationService,
-              private http: HttpClient) { }
+              private http: HttpClient,
+              private deviceService: DeviceServiceService) { }
 
   ngOnInit(): void {
+    console.log(environment.title)
+    this.dtOptions = {
+      serverSide: true,
+      processing: true,
+      ajax: (dataTablesParameters: any, callback) => {
+        this.http
+          .post<DataTablesResponse>(
+            apiURL + 'device/get',
+            dataTablesParameters, {}
+          ).subscribe(resp => {
+          console.log("data table called")
+          this.devices = resp.data;
+
+          callback({
+            recordsTotal: resp.recordsTotal,
+            recordsFiltered: resp.recordsFiltered,
+            data: []
+          });
+        });
+      },
+      columns: [
+        {data: 'id'},
+        {data: 'fname'},
+        {data: 'lname'},
+        {data: 'email'},
+        {data: 'gender'},
+        {data: 'nic'}
+
+      ]
+    };
   }
 
 
@@ -38,13 +73,13 @@ export class DeviceComponent implements OnInit {
     console.log("okk")
 
 
-    // this.userService.saveUser(this.user)
-    //   .subscribe(data => {
-    //     console.log("saving --- " + data);
-    //     this.user = new User();
-    //     this.notifyService.showSuccess("Successfully User Saved", "Success");
-    //     window.location.reload();
-    //   })
+    this.deviceService.saveDevice(this.device)
+      .subscribe(data => {
+        console.log("saving --- " + data);
+        this.device = new Device();
+        this.notifyService.showSuccess("Successfully Device Saved", "Success");
+        window.location.reload();
+      })
   }
 
 
